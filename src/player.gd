@@ -18,5 +18,5 @@ func _unhandled_input(event):
 	if event.is_action_pressed("throw"):
 		var symbol = SymbolX.instantiate()
 		symbol.position = global_position
-		symbol.linear_velocity = -basis.z * THROW_SPEED
-		get_parent_node_3d().add_child(symbol)
+		symbol.linear_velocity = -camera.global_basis.z * THROW_SPEED
+		get_tree().root.add_child(symbol)
