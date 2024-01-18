@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://en4cyb2bq35n"]
+
+[ext_resource type="ArrayMesh" uid="uid://cqlcbuqh1y3a3" path="res://assets/symbol_x.obj" id="1_gm66u"]
+
+[node name="SymbolX" type="RigidBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_gm66u")
+skeleton = NodePath("../..")
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+depth = 0.03
+polygon = PackedVector2Array(-0.0492478, 0.0480715, -0.0326644, 0.0480715, 0.0463654, -0.0469843, 0.0297159, -0.0469182)
+
+[node name="CollisionPolygon3D2" type="CollisionPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+depth = 0.03
+polygon = PackedVector2Array(0.0323763, 0.0481014, 0.049022, 0.0481014, -0.029718, -0.0470446, -0.0462354, -0.0469125)

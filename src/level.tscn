@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://bc00h0hh663r8"]
+
+[ext_resource type="PackedScene" uid="uid://hu2d2ktmeb7b" path="res://src/symbol_o.tscn" id="1_70ub6"]
+[ext_resource type="PackedScene" uid="uid://en4cyb2bq35n" path="res://src/symbol_x.tscn" id="1_h5jjy"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ken32"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_v1g38"]
+sky_material = SubResource("ProceduralSkyMaterial_ken32")
+
+[sub_resource type="Environment" id="Environment_htv5o"]
+background_mode = 2
+sky = SubResource("Sky_v1g38")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8v4ps"]
+size = Vector2(3, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vrkjo"]
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4fto4"]
+size = Vector3(0.5, 0.1, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1t4cr"]
+size = Vector3(0.5, 0.1, 0.5)
+
+[node name="Level" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_htv5o")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0739957, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("PlaneMesh_8v4ps")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("BoxShape3D_vrkjo")
+
+[node name="Board" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Board"]
+mesh = SubResource("BoxMesh_4fto4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Board"]
+shape = SubResource("BoxShape3D_1t4cr")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.900812, 0.434209, 0, -0.434209, 0.900812, 0, 0.531798, 0.740643)
+
+[node name="SymbolX" parent="." instance=ExtResource("1_h5jjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.267392, 0)
+
+[node name="SymbolX2" parent="." instance=ExtResource("1_h5jjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0646027, 0.324705, -0.0291542)
+
+[node name="SymbolX3" parent="." instance=ExtResource("1_h5jjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.365185, 0.047924)
+
+[node name="SymbolO" parent="." instance=ExtResource("1_70ub6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.568252, 0)
