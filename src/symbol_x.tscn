@@ -3,6 +3,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cqlcbuqh1y3a3" path="res://assets/symbol_x.obj" id="1_gm66u"]
 
 [node name="SymbolX" type="RigidBody3D"]
+continuous_cd = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_gm66u")
