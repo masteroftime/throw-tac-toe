@@ -26,4 +26,5 @@ throw={
 [physics]
 
 common/physics_ticks_per_second=120
+3d/physics_engine="JoltPhysics3D"
 3d/solver/contact_max_allowed_penetration=0.001
