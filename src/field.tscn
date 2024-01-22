@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckxwp5h1l4ykt"]
+
+[ext_resource type="Script" path="res://src/field.gd" id="1_76f8a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yq282"]
+size = Vector3(0.15, 0.005, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_txetv"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 0.545098)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8x3c3"]
+material = SubResource("StandardMaterial3D_txetv")
+size = Vector2(0.15, 0.15)
+
+[node name="Field" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_76f8a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_yq282")
+
+[node name="Indicator" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_8x3c3")

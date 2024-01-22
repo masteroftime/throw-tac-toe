@@ -6,9 +6,9 @@ const THROW_SPEED = 2
 const SymbolX = preload("res://src/symbol_x.tscn")
 const SymbolO = preload("res://src/symbol_o.tscn")
 
-enum { SYMBOL_X, SYMBOL_O }
 
-var current_symbol = SYMBOL_X
+
+var current_symbol = Symbol.SymbolType.O
 
 @onready var camera = $Camera3D
 
@@ -28,9 +28,9 @@ func _unhandled_input(event):
 
 
 func get_current_symbol_instance() -> Node:
-	if current_symbol == SYMBOL_X:
-		current_symbol = SYMBOL_O
+	if current_symbol == Symbol.SymbolType.X:
+		current_symbol = Symbol.SymbolType.O
 		return SymbolX.instantiate()
 	else:
-		current_symbol = SYMBOL_X
+		current_symbol = Symbol.SymbolType.X
 		return SymbolO.instantiate()

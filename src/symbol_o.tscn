@@ -1,13 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://hu2d2ktmeb7b"]
+[gd_scene load_steps=4 format=3 uid="uid://hu2d2ktmeb7b"]
 
 [ext_resource type="ArrayMesh" uid="uid://djlvajgwfj6up" path="res://assets/symbol_o.obj" id="1_0vwpg"]
+[ext_resource type="Script" path="res://src/symbol.gd" id="1_4nfrr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gnjn2"]
+albedo_color = Color(0, 0, 1, 1)
 
 [node name="SymbolO" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 3
 continuous_cd = true
+script = ExtResource("1_4nfrr")
+type = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_0vwpg")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gnjn2")
 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)

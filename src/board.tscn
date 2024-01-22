@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dywi04mcuy4i3"]
+
+[ext_resource type="Script" path="res://src/board.gd" id="1_mqjhr"]
+[ext_resource type="PackedScene" uid="uid://ckxwp5h1l4ykt" path="res://src/field.tscn" id="1_vlyey"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4fto4"]
+size = Vector3(0.5, 0.1, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1t4cr"]
+size = Vector3(0.5, 0.1, 0.5)
+
+[node name="Board" type="StaticBody3D"]
+script = ExtResource("1_mqjhr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_4fto4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1t4cr")
+
+[node name="Fields" type="Node" parent="."]
+
+[node name="Field" parent="Fields" instance=ExtResource("1_vlyey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0520937, 0)
+
+[node name="Field2" parent="Fields" instance=ExtResource("1_vlyey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0520937, 0.175268)
+
+[node name="Field3" parent="Fields" instance=ExtResource("1_vlyey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.166664, 0.0520937, -0.000584543)

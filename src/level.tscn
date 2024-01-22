@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bc00h0hh663r8"]
+[gd_scene load_steps=8 format=3 uid="uid://bc00h0hh663r8"]
 
 [ext_resource type="PackedScene" uid="uid://dqhotc6osrakd" path="res://src/player.tscn" id="1_h3vjl"]
+[ext_resource type="PackedScene" uid="uid://dywi04mcuy4i3" path="res://src/board.tscn" id="2_wyrwf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ken32"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -20,12 +21,6 @@ size = Vector2(3, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vrkjo"]
 size = Vector3(1, 0.5, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_4fto4"]
-size = Vector3(0.5, 0.1, 0.5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_1t4cr"]
-size = Vector3(0.5, 0.1, 0.5)
 
 [node name="Level" type="Node3D"]
 
@@ -49,10 +44,4 @@ mesh = SubResource("PlaneMesh_8v4ps")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 shape = SubResource("BoxShape3D_vrkjo")
 
-[node name="Board" type="StaticBody3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Board"]
-mesh = SubResource("BoxMesh_4fto4")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Board"]
-shape = SubResource("BoxShape3D_1t4cr")
+[node name="Board" parent="." instance=ExtResource("2_wyrwf")]
