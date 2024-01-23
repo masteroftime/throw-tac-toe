@@ -3,16 +3,18 @@ class_name Field extends Area3D
 signal symbol_changed
 
 @onready var indicator = $Indicator
+@onready var material = indicator.get_surface_override_material(0)
 
 var symbol := Symbol.SymbolType.NONE:
 	set(value):
 		if value == Symbol.SymbolType.X:
 			indicator.show()
+			material.albedo_color = Color.RED
 		elif value == Symbol.SymbolType.O:
 			indicator.show()
+			material.albedo_color = Color.BLUE
 		else:
 			indicator.hide()
-
 
 func _ready():
 	indicator.hide()

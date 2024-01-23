@@ -5,14 +5,14 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_yq282"]
 size = Vector3(0.15, 0.005, 0.15)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_8x3c3"]
+size = Vector2(0.15, 0.15)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_txetv"]
+resource_local_to_scene = true
 transparency = 1
 shading_mode = 0
 albedo_color = Color(0, 1, 0, 0.545098)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_8x3c3"]
-material = SubResource("StandardMaterial3D_txetv")
-size = Vector2(0.15, 0.15)
 
 [node name="Field" type="Area3D"]
 collision_mask = 2
@@ -23,3 +23,4 @@ shape = SubResource("BoxShape3D_yq282")
 
 [node name="Indicator" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_8x3c3")
+surface_material_override/0 = SubResource("StandardMaterial3D_txetv")
