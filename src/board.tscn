@@ -1,13 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://dywi04mcuy4i3"]
+[gd_scene load_steps=7 format=3 uid="uid://dywi04mcuy4i3"]
 
 [ext_resource type="Script" path="res://src/board.gd" id="1_mqjhr"]
 [ext_resource type="PackedScene" uid="uid://ckxwp5h1l4ykt" path="res://src/field.tscn" id="1_vlyey"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4fto4"]
-size = Vector3(0.5, 0.1, 0.5)
+size = Vector3(0.6, 0.1, 0.6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1t4cr"]
-size = Vector3(0.5, 0.1, 0.5)
+size = Vector3(0.6, 0.1, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pfyxj"]
+albedo_color = Color(0.156863, 0.156863, 0.156863, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a2uos"]
+material = SubResource("StandardMaterial3D_pfyxj")
+size = Vector3(0.55, 0.01, 0.01)
 
 [node name="Board" type="StaticBody3D"]
 script = ExtResource("1_mqjhr")
@@ -21,10 +28,44 @@ shape = SubResource("BoxShape3D_1t4cr")
 [node name="Fields" type="Node" parent="."]
 
 [node name="Field" parent="Fields" instance=ExtResource("1_vlyey")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0520937, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.189573, 0.0520937, -0.188314)
 
 [node name="Field2" parent="Fields" instance=ExtResource("1_vlyey")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0520937, 0.175268)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000546038, 0.0520937, -0.186093)
 
 [node name="Field3" parent="Fields" instance=ExtResource("1_vlyey")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.166664, 0.0520937, -0.000584543)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.187301, 0.0520937, -0.186323)
+
+[node name="Field4" parent="Fields" instance=ExtResource("1_vlyey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.189573, 0.0520937, -0.0072608)
+
+[node name="Field5" parent="Fields" instance=ExtResource("1_vlyey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000546038, 0.0520937, -0.00503977)
+
+[node name="Field6" parent="Fields" instance=ExtResource("1_vlyey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.187301, 0.0520937, -0.00526986)
+
+[node name="Field7" parent="Fields" instance=ExtResource("1_vlyey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.189573, 0.0520937, 0.173793)
+
+[node name="Field8" parent="Fields" instance=ExtResource("1_vlyey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000546038, 0.0520937, 0.176014)
+
+[node name="Field9" parent="Fields" instance=ExtResource("1_vlyey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.187301, 0.0520937, 0.175783)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.051724, -0.0973349)
+mesh = SubResource("BoxMesh_a2uos")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.051724, 0.0823558)
+mesh = SubResource("BoxMesh_a2uos")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0938396, 0.051724, -0.00128388)
+mesh = SubResource("BoxMesh_a2uos")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0907796, 0.051724, -0.00128388)
+mesh = SubResource("BoxMesh_a2uos")
