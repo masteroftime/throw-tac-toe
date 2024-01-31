@@ -7,6 +7,11 @@ signal symbol_changed
 
 var symbol := Symbol.SymbolType.NONE:
 	set(value):
+		if value == symbol:
+			return
+		
+		symbol = value
+		
 		if value == Symbol.SymbolType.X:
 			indicator.show()
 			material.albedo_color = Color.RED
@@ -15,6 +20,8 @@ var symbol := Symbol.SymbolType.NONE:
 			material.albedo_color = Color.BLUE
 		else:
 			indicator.hide()
+		
+		symbol_changed.emit()
 
 func _ready():
 	indicator.hide()

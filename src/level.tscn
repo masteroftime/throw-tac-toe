@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bc00h0hh663r8"]
+[gd_scene load_steps=9 format=3 uid="uid://bc00h0hh663r8"]
 
 [ext_resource type="PackedScene" uid="uid://dqhotc6osrakd" path="res://src/player.tscn" id="1_h3vjl"]
+[ext_resource type="Script" path="res://src/level.gd" id="1_piwy2"]
 [ext_resource type="PackedScene" uid="uid://dywi04mcuy4i3" path="res://src/board.tscn" id="2_wyrwf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ken32"]
@@ -23,6 +24,7 @@ size = Vector2(3, 3)
 size = Vector3(1, 0.5, 1)
 
 [node name="Level" type="Node3D"]
+script = ExtResource("1_piwy2")
 
 [node name="Player" parent="." instance=ExtResource("1_h3vjl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.467558, 0.613917)
@@ -45,3 +47,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 shape = SubResource("BoxShape3D_vrkjo")
 
 [node name="Board" parent="." instance=ExtResource("2_wyrwf")]
+
+[node name="WinLabel" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "X WINS"
